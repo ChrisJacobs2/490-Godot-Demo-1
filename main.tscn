@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7au05053jwsi"]
+
+[ext_resource type="PackedScene" uid="uid://c2enph0net1tb" path="res://critter.tscn" id="1_v1ntq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k7edi"]
+size = Vector2(135, 20)
+
+[sub_resource type="GDScript" id="GDScript_q1cq3"]
+script/source = "extends CollisionShape2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[node name="main" type="Node2D"]
+
+[node name="Critter" parent="." instance=ExtResource("1_v1ntq")]
+position = Vector2(19, -26)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(57.5, 0)
+shape = SubResource("RectangleShape2D_k7edi")
+script = SubResource("GDScript_q1cq3")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D/CollisionShape2D"]
+offset_left = -67.0
+offset_top = -10.0
+offset_right = 67.0
+offset_bottom = 10.0
+metadata/_edit_use_anchors_ = true

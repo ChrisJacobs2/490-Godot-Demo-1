@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2enph0net1tb"]
+
+[ext_resource type="Script" path="res://critter.gd" id="1_sigff"]
+[ext_resource type="Script" path="res://CollisionShape2D.gd" id="2_m7yga"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccpuo"]
+
+[node name="Critter" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_sigff")
+
+[node name="ColorRect" type="ColorRect" parent="CharacterBody2D"]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+color = Color(0.854902, 0.227451, 0.180392, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_ccpuo")
+script = ExtResource("2_m7yga")
+
+[node name="Control" type="Control" parent="CharacterBody2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
